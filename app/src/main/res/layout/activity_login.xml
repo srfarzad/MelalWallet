@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity">
+
+
+    <Spinner
+        android:id="@+id/spi_languages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_32"
+        android:entries="@array/languages" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_logo"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/spi_languages"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/insta" />
+
+
+    <RelativeLayout
+        android:id="@+id/rel_fb_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/img_logo"
+        android:layout_margin="@dimen/margin_16"
+        android:background="#2196F3">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_8"
+            android:layout_toLeftOf="@id/lbl_fb_connect"
+            app:srcCompat="@drawable/ic_iconfinder_facebook_834722" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lbl_fb_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Connect to Facebook"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rel_seperator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_fb_login"
+        android:layout_margin="@dimen/margin_16">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#000000" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_8"
+                android:layout_marginRight="@dimen/margin_8"
+                android:text="OR" />
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#000000" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_seperator"
+        android:layout_margin="@dimen/margin_32"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/gray_card"
+            android:hint="Username" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/margin_8"
+            android:background="@drawable/gray_card"
+            android:hint="Password" />
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:text="Save info login" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:background="#2196F3"
+            android:text="Login"
+            android:textColor="@color/white" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_32"
+            android:text="Forgot passowrd"
+            android:textColor="#2196F3" />
+
+
+    </LinearLayout>
+
+
+    <View
+        android:background="#7C7878"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/rel_bottom" />
+
+    <RelativeLayout
+        android:id="@+id/rel_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Don't have an account?" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/txt_account"
+            android:text="SignUp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress"
+        />
+
+
+</RelativeLayout>
