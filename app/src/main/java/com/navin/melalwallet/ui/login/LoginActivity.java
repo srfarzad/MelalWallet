@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.navin.melalwallet.MainActivity;
 import com.navin.melalwallet.R;
 import com.navin.melalwallet.models.IMessageListener;
+import com.navin.melalwallet.service.UpdateService;
 import com.navin.melalwallet.webservice.WebserviceCaller;
 
 import org.json.JSONException;
@@ -41,6 +42,19 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         ButterKnife.bind(this);
 
         loginPresentor = new LoginPresentor(this,new LoginIntractor());
+
+       // startService(new Intent(getApplicationContext(),UpdateService.class));
+
+
+        //com.navin.ipcmanager
+        Intent intent = new Intent();
+        intent.setClassName("com.navin.ipcmanager","com.navin.ipcmanager.MessageListener");
+        intent.setAction("com.navin.ipcmanager.MessageListener");
+        intent.putExtra("id",1);
+        intent.putExtra("mydata", "{\"name\": \"Andrroid\", \"BrandLogo\" : \"ic_launcer\"}");
+
+        sendBroadcast(intent);
+
 
 
     }
