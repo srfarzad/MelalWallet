@@ -148,6 +148,19 @@
             android:text="Forgot passowrd"
             android:textColor="#2196F3" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_login_social"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_8"
+            android:text="@string/login_with_social_networks"
+            android:textColor="@color/blue_light" />
+
+
+
+
+
 
     </LinearLayout>
 
@@ -180,6 +193,9 @@
             android:layout_toRightOf="@id/txt_account"
             android:text="SignUp"
             android:textStyle="bold" />
+
+
+
 
 
     </RelativeLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "461318467152",
+    "firebase_url": "https://cohesive-geode-156807.firebaseio.com",
+    "project_id": "cohesive-geode-156807",
+    "storage_bucket": "cohesive-geode-156807.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461318467152:android:5160ce6acd8c3431a16b55",
+        "android_client_info": {
+          "package_name": "com.navin.melalwallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461318467152-eoso1njvhiim795to6015apv6tpv8ir6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-HKFbfrpfNLB7ls5lNWrYzlQQOeGcFCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461318467152-eoso1njvhiim795to6015apv6tpv8ir6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,11 +19,16 @@ import com.google.android.material.snackbar.Snackbar;
 import com.navin.melalwallet.MainActivity;
 import com.navin.melalwallet.R;
 import com.navin.melalwallet.models.IMessageListener;
+import com.navin.melalwallet.service.BootupService;
 import com.navin.melalwallet.service.UpdateService;
+import com.navin.melalwallet.ui.loginAuth.LoginAuthenticationActivity;
+import com.navin.melalwallet.utils.ApplicationManager;
 import com.navin.melalwallet.webservice.WebserviceCaller;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,6 +65,29 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
 
 
+        if(!ApplicationManager.isMyServiceRunning(getApplicationContext(),BootupService.class)){
+
+          AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+
+        Intent intent1 = new Intent(getApplicationContext() , BootupService.class);
+        PendingIntent  pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),1,intent1,0);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 20);
+        calendar.set(Calendar.MINUTE, 17);
+
+
+
+        //alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),60000,pendingIntent);
+        }
+
+
+
+
+
     }
 
     @OnClick(R.id.btn_login)
@@ -74,6 +105,15 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     }
 
+
+
+    @OnClick(R.id.txt_login_social)
+    public void txt_login_social_click() {
+
+
+        startActivity(new Intent(getApplicationContext(), LoginAuthenticationActivity.class));
+
+    }
 
     @Override
     public void onUsernameError() {
