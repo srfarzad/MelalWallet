@@ -1,13 +1,17 @@
 package com.navin.melalwallet.ui.login;
 
+import android.app.Activity;
+import android.content.Context;
+
 public class LoginPresentor implements LoginIntractor.onLoginListener {
 
 
     LoginIntractor loginIntractor;
     ILoginView loginView;
+    Activity context;
 
-    public LoginPresentor (ILoginView loginView, LoginIntractor loginIntractor) {
-
+    public LoginPresentor (Activity context , ILoginView loginView, LoginIntractor loginIntractor) {
+        this.context = context;
         this.loginView = loginView;
         this.loginIntractor = loginIntractor;
     }
@@ -16,7 +20,7 @@ public class LoginPresentor implements LoginIntractor.onLoginListener {
     public void loginUser (String username , String password){
 
         loginView.showProgressBar();
-        loginIntractor.login(username,password,this);
+        loginIntractor.login(context,username,password,this);
 
 
     }

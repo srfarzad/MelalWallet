@@ -48,20 +48,27 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation 'com.google.firebase:firebase-ads:18.3.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
 
 
-   /* implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
+
+    /* implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+     implementation 'com.google.firebase:firebase-auth:19.2.0'
 
 
-    // Required only if Facebook login support is required
-    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
-    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+     // Required only if Facebook login support is required
+     // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+     implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
 
-    // Required only if Twitter login support is required
-    // Find the latest Twitter SDK releases here: https://goo.gl/E5wZvQ
-    implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
-    implementation 'com.android.support:multidex:1.0.3'*/
+     // Required only if Twitter login support is required
+     // Find the latest Twitter SDK releases here: https://goo.gl/E5wZvQ
+     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+     implementation 'com.android.support:multidex:1.0.3'*/
+
+
+    implementation "androidx.room:room-runtime:+"
+    annotationProcessor "androidx.room:room-compiler:+" // For Kotlin use kapt instead of annotationProcessor
+
 
 
 

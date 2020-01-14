@@ -1,10 +1,14 @@
 package com.navin.melalwallet.ui.login;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
 import com.navin.melalwallet.MainActivity;
+import com.navin.melalwallet.database.AppDatabase;
 import com.navin.melalwallet.models.IMessageListener;
+import com.navin.melalwallet.models.User;
 import com.navin.melalwallet.webservice.WebserviceCaller;
 
 import org.json.JSONException;
@@ -28,7 +32,9 @@ public class LoginIntractor {
 
 
 
-    public void login (String username , String password ,onLoginListener loginListener ) {
+    public void login (Activity context, String username , String password , onLoginListener loginListener ) {
+
+
 
 
         if(username.isEmpty()){
@@ -48,6 +54,10 @@ public class LoginIntractor {
         webserviceCaller.loginUser(username, password, new IMessageListener() {
             @Override
             public void onResponse(Object response) {
+
+
+
+
 
                 try {
                     JSONObject jsonObject = new JSONObject(response.toString());

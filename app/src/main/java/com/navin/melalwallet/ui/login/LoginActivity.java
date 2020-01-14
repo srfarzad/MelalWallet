@@ -16,9 +16,13 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.navin.melalwallet.EventBus.Events;
+import com.navin.melalwallet.EventBus.GlobalBus;
 import com.navin.melalwallet.MainActivity;
 import com.navin.melalwallet.R;
+import com.navin.melalwallet.database.AppDatabase;
 import com.navin.melalwallet.models.IMessageListener;
+import com.navin.melalwallet.models.User;
 import com.navin.melalwallet.service.BootupService;
 import com.navin.melalwallet.service.UpdateService;
 import com.navin.melalwallet.ui.loginAuth.LoginAuthenticationActivity;
@@ -29,6 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     @BindView(R.id.progress) ProgressBar progress;
 
     LoginPresentor loginPresentor;
+    AppDatabase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +55,12 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        loginPresentor = new LoginPresentor(this,new LoginIntractor());
+        Events.FragmenActivityMessage  event=new Events.FragmenActivityMessage("hi");
+        GlobalBus.getBus().post(event);
+
+         appDatabase = AppDatabase.getInstance(this);
+
+        loginPresentor = new LoginPresentor(this,this,new LoginIntractor());
 
        // startService(new Intent(getApplicationContext(),UpdateService.class));
 
@@ -137,6 +148,29 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     @Override
     public void onSuccess(Object response) {
+
+
+
+        User user = new User();
+       // String time = Double.
+      //  user.id=(int)ApplicationManager.getRandomDoubleBetweenRange(100,10000);
+        user.username= "android";
+        user.password = "123";
+
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                appDatabase.userDAO().insert(user);
+
+                List<User> users = appDatabase.userDAO().getAll();
+                Log.e("","");
+
+
+            }
+        });
+
 
         finish();
         Intent intent = new Intent(getApplicationContext() , MainActivity.class);
