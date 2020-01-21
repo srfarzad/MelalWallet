@@ -51,7 +51,6 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
 
 
-
     /* implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
      implementation 'com.google.firebase:firebase-auth:19.2.0'
 
@@ -67,9 +66,10 @@ dependencies {
 
 
     implementation "androidx.room:room-runtime:+"
-    annotationProcessor "androidx.room:room-compiler:+" // For Kotlin use kapt instead of annotationProcessor
+    annotationProcessor "androidx.room:room-compiler:+"
+    // For Kotlin use kapt instead of annotationProcessor
 
-
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
 
 }
