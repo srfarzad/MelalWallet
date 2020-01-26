@@ -33,6 +33,12 @@ import com.navin.melalwallet.EventBus.GlobalBus;
 import com.navin.melalwallet.MainActivity;
 import com.navin.melalwallet.R;
 import com.navin.melalwallet.database.AppDatabase;
+import com.navin.melalwallet.di.DaggerUserComponent;
+import com.navin.melalwallet.di.UserComponent;
+import com.navin.melalwallet.di.UserModule;
+import com.navin.melalwallet.di.context.ActivityComponent;
+import com.navin.melalwallet.di.context.DaggerActivityComponent;
+import com.navin.melalwallet.di.context.MainActivityModule;
 import com.navin.melalwallet.models.IMessageListener;
 import com.navin.melalwallet.models.User;
 import com.navin.melalwallet.service.BootupService;
@@ -113,6 +119,22 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),60000,pendingIntent);
         }
 
+
+        UserComponent component =  DaggerUserComponent.builder().userModule(new UserModule()).build();
+
+
+        component.provideUser().setEmail("");
+        component.provideUser().getEmailAccount();
+        component.provideContact().deleteEmail();
+      //  component.provideWebservice().loginUser();
+
+
+        ActivityComponent activityComponent = DaggerActivityComponent.builder()
+                .mainActivityModule(new MainActivityModule(getApplicationContext())).build();
+
+
+
+        //activityComponent.context()
 
 
 

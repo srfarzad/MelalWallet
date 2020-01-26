@@ -72,4 +72,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
 
+    implementation 'com.google.dagger:dagger:2.11'
+    implementation 'com.google.dagger:dagger-android:2.15'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+
+
 }

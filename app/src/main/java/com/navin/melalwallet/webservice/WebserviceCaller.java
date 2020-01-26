@@ -8,6 +8,8 @@ import com.navin.melalwallet.models.IMessageListener;
 import java.io.IOException;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,6 +19,7 @@ public class WebserviceCaller {
 
     IService iService;
 
+    @Inject
     public WebserviceCaller() {
         iService = ApiClient.getRetrofit().create(IService.class);
 
