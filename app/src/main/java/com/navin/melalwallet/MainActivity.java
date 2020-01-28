@@ -9,17 +9,18 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.navin.melalwallet.EventBus.Events;
-import com.navin.melalwallet.EventBus.GlobalBus;
 import com.navin.melalwallet.fragment.CategoryFragment;
 import com.navin.melalwallet.fragment.HomeFragment;
 import com.navin.melalwallet.fragment.SettingFragment;
+import com.navin.melalwallet.models.MessageEvent;
 import com.navin.melalwallet.ui.main.TabsAdapter;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -39,12 +40,27 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
 
+
+
+
+
         pager.setAdapter(new TabsAdapter(getSupportFragmentManager()));
 
-
-
-
         bottom_navigation.setOnNavigationItemSelectedListener(this);
+    }
+
+
+    @OnClick(R.id.btn_click)
+    public void btn_click_click() {
+
+
+        MessageEvent event = new MessageEvent() ;
+        event.setTitle("Shahriyar");
+        event.setId(20);
+        EventBus.getDefault().post(event);
+
+
+
     }
 
 
@@ -89,19 +105,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return false;
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        GlobalBus.getBus().register(this);
-    }
-    @Subscribe
-    public void getMessage(Events.FragmenActivityMessage event){
-        Toast.makeText(this,event.getMessage(), Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        GlobalBus.getBus().unregister(this);
     }
 }

@@ -28,8 +28,6 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.karumi.dexter.listener.single.PermissionListener;
-import com.navin.melalwallet.EventBus.Events;
-import com.navin.melalwallet.EventBus.GlobalBus;
 import com.navin.melalwallet.MainActivity;
 import com.navin.melalwallet.R;
 import com.navin.melalwallet.database.AppDatabase;
@@ -78,9 +76,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         ButterKnife.bind(this);
 
         getLocationPermission();
-
-        Events.FragmenActivityMessage  event=new Events.FragmenActivityMessage("hi");
-        GlobalBus.getBus().post(event);
 
          appDatabase = AppDatabase.getInstance(this);
 

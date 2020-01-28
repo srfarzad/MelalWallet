@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.navin.melalwallet.models.User;
 
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();
