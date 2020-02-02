@@ -11,20 +11,15 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
 
-    
-    <permission android:name="com.navin.melalwallet.googlemapsv2.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature"
-        />
+    <permission
+        android:name="com.navin.melalwallet.googlemapsv2.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.navin.melalwallet.googlemapsv2.permission.MAPS_RECEIVE"/>
-
-
-
+    <uses-permission android:name="com.navin.melalwallet.googlemapsv2.permission.MAPS_RECEIVE" />
 
     <application
         android:name=".confiig.AppConfiguration"
@@ -35,7 +30,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.map.GoogleMapActivity"></activity>
+        <activity android:name=".ui.kotlin.KotlinActivity"></activity>
+        <activity android:name=".ui.map.GoogleMapActivity" />
         <activity android:name=".ui.loginAuth.LoginAuthenticationActivity" />
         <activity android:name=".ui.welcome.WelcomeActivity">
             <intent-filter>
@@ -69,16 +65,13 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
-
-
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCs1X8xNXPODOtTltBiQjNGaxx5tAdo3S0" />
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
-
-
-
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
 </manifest>

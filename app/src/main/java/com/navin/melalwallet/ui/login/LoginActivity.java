@@ -37,6 +37,7 @@ import com.navin.melalwallet.di.UserModule;
 import com.navin.melalwallet.di.context.ActivityComponent;
 import com.navin.melalwallet.di.context.DaggerActivityComponent;
 import com.navin.melalwallet.di.context.MainActivityModule;
+import com.navin.melalwallet.models.Days;
 import com.navin.melalwallet.models.IMessageListener;
 import com.navin.melalwallet.models.User;
 import com.navin.melalwallet.service.BootupService;
@@ -131,6 +132,14 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
         //activityComponent.context()
 
+
+
+        int day = 1;
+        if(day== Days.SAT.getDay()) {
+
+        }else if(day==2 ){
+
+        }
 
 
 

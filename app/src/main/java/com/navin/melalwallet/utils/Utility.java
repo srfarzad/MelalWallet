@@ -1,8 +1,10 @@
 package com.navin.melalwallet.utils;
 
+import com.navin.melalwallet.ui.kotlin.Student;
+
 public class Utility {
 
-    public int getMin(int a, int b) {
+    public static int getMin(int a, int b) {
 
         if (a > b) {
             return b;
@@ -21,4 +23,19 @@ public class Utility {
             return false;
         }
     }
+
+
+
+    public void test (){
+
+        Student student = new Student("ali", 20);
+
+        student.getAge();
+
+        student.getName();
+
+
+
+    }
+
 }
