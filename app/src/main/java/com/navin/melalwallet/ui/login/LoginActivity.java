@@ -59,6 +59,11 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class LoginActivity extends AppCompatActivity implements ILoginView {
 
@@ -140,6 +145,32 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         }else if(day==2 ){
 
         }
+
+
+        Observable.just("one","two","three","four")
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.e("onSubscribe","onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        Log.e("onNext",""+s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("onError","onError "+e.getMessage().isEmpty());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.e("onComplete","onComplete");
+                    }
+                });
 
 
 

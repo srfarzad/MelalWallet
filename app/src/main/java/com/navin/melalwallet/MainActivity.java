@@ -1,6 +1,7 @@
 package com.navin.melalwallet;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
 
+
+
     }
 
 
@@ -110,4 +113,29 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -10,6 +10,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Scheduler;
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -95,7 +101,44 @@ public class WebserviceCaller {
 
 
 
+    public void loginUser2 (String username , String password, IMessageListener listener) {
 
+
+        Single<ResponseBody> login2 = iService.loginUser(username, password);
+
+        login2.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(ResponseBody responseBody) {
+
+                        Log.e("","");
+                        try {
+                            listener.onResponse(responseBody.string());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onFailure(e.getMessage().toString());
+                    }
+                });
+
+
+
+
+
+
+
+    }
 
 
 
