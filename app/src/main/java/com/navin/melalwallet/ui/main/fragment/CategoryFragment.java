@@ -1,4 +1,4 @@
-package com.navin.melalwallet.fragment;
+package com.navin.melalwallet.ui.main.fragment;
 
 
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.navin.melalwallet.R;
 import com.navin.melalwallet.models.Category;
 import com.navin.melalwallet.models.IMessageListener;
-import com.navin.melalwallet.ui.main.CategoryAdapter;
+import com.navin.melalwallet.ui.main.adapter.CategoryAdapter;
 import com.navin.melalwallet.webservice.WebserviceCaller;
 
 import java.util.List;

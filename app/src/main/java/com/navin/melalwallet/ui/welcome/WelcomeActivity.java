@@ -19,9 +19,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.navin.melalwallet.ui.main.MainActivity;
 import com.navin.melalwallet.R;
 import com.navin.melalwallet.confiig.PrefManager;
-import com.navin.melalwallet.ui.login.LoginActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -125,7 +125,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
         finish();
     }
 

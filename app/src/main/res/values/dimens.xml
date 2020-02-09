@@ -13,4 +13,8 @@
     <dimen name="slide_title">30dp</dimen>
     <dimen name="slide_desc">16dp</dimen>
     <dimen name="desc_padding">40dp</dimen>
+    <dimen name="img_width">114dp</dimen>
+    <dimen name="img_height">114dp</dimen>
+    <dimen name="height_product">140dp</dimen>
+    <dimen name="font_product">20sp</dimen>
 </resources>

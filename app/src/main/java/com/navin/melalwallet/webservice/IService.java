@@ -1,6 +1,7 @@
 package com.navin.melalwallet.webservice;
 
 import com.navin.melalwallet.models.Category;
+import com.navin.melalwallet.models.Product;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -38,6 +39,18 @@ public interface IService {
     @FormUrlEncoded
     @POST("login.php")
     Single<ResponseBody> loginUser(@Field("username") String user, @Field("password") String pass);
+
+
+
+    @GET("getAnnouncements.php")
+    Call<List<Product>> getAnnouncements();
+
+    @GET("getBestApplications.php")
+    Call<List<Product>> getBestProducts();
+
+
+    @GET("getNewApplications.php")
+    Call<List<Product>> getNewApplications();
 
 
  //   CompletableFuture

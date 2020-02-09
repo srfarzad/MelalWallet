@@ -44,6 +44,8 @@
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
     <string name="login_with_social_networks">Login With Social Networks</string>
+    <string name="best_products">برترین محصولات</string>
+    <string name="new_products">جدیدترین محصولات</string>
 
 
 </resources>

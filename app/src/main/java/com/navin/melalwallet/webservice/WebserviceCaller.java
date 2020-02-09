@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.navin.melalwallet.models.Category;
 import com.navin.melalwallet.models.IMessageListener;
+import com.navin.melalwallet.models.Product;
 
 import java.io.IOException;
 import java.util.List;
@@ -139,6 +140,82 @@ public class WebserviceCaller {
 
 
     }
+
+
+
+    public void getAnnouncements(IMessageListener listener) {
+
+
+        Call<List<Product>> call = iService.getAnnouncements();
+
+         call.enqueue(new Callback<List<Product>>() {
+             @Override
+             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                 listener.onResponse(response.body());
+             }
+
+             @Override
+             public void onFailure(Call<List<Product>> call, Throwable t) {
+                listener.onFailure(t.getMessage().toString());
+             }
+         });
+
+
+
+
+
+    }
+
+
+    public void getBestProducts(IMessageListener listener) {
+
+
+        Call<List<Product>> call = iService.getBestProducts();
+
+        call.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                listener.onResponse(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                listener.onFailure(t.getMessage().toString());
+            }
+        });
+
+
+
+
+
+    }
+
+
+
+    public void getNewProducts(IMessageListener listener) {
+
+
+        Call<List<Product>> call = iService.getNewApplications();
+
+        call.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                listener.onResponse(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                listener.onFailure(t.getMessage().toString());
+            }
+        });
+
+
+
+
+
+    }
+
+
 
 
 

@@ -30,7 +30,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.kotlin.KotlinActivity"></activity>
+        <activity android:name=".ui.productDetail.ProductActivity"></activity>
+        <activity android:name=".ui.kotlin.KotlinActivity" />
         <activity android:name=".ui.map.GoogleMapActivity" />
         <activity android:name=".ui.loginAuth.LoginAuthenticationActivity" />
         <activity android:name=".ui.welcome.WelcomeActivity">
@@ -41,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.main.MainActivity" />
 
         <receiver android:name=".service.BootupService">
             <intent-filter>

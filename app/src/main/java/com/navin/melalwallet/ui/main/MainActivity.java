@@ -1,23 +1,25 @@
-package com.navin.melalwallet;
+package com.navin.melalwallet.ui.main;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.navin.melalwallet.fragment.CategoryFragment;
-import com.navin.melalwallet.fragment.HomeFragment;
-import com.navin.melalwallet.fragment.SettingFragment;
+import com.navin.melalwallet.R;
 import com.navin.melalwallet.models.MessageEvent;
-import com.navin.melalwallet.ui.main.TabsAdapter;
+import com.navin.melalwallet.ui.main.adapter.TabsAdapter;
+import com.navin.melalwallet.ui.main.fragment.CategoryFragment;
+import com.navin.melalwallet.ui.main.fragment.SettingFragment;
+import com.navin.melalwallet.ui.main.fragment.home.HomeFragment;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,14 +45,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
 
+        List<Fragment> fragmentList = new ArrayList<>();
 
+        fragmentList.add(new HomeFragment());
+        fragmentList.add(new CategoryFragment());
+        fragmentList.add(new SettingFragment());
 
-        pager.setAdapter(new TabsAdapter(getSupportFragmentManager()));
+        pager.setAdapter(new TabsAdapter(getSupportFragmentManager(),fragmentList));
 
         bottom_navigation.setOnNavigationItemSelectedListener(this);
     }
 
-
+/*
     @OnClick(R.id.btn_click)
     public void btn_click_click() {
 
@@ -64,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
 
-    }
+    }*/
 
 
     @Override

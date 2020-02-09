@@ -1,4 +1,4 @@
-package com.navin.melalwallet.ui.main;
+package com.navin.melalwallet.ui.main.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
