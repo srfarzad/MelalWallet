@@ -3,10 +3,13 @@ package com.navin.melalwallet.ui.productDetail;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatRatingBar;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.navin.melalwallet.R;
@@ -28,14 +31,18 @@ import butterknife.BindView;
 public class ProductActivity extends BaseActivity {
 
 
-    @BindView(R.id.txt_page_title) CustomTextView txt_page_title;
-    @BindView(R.id.txt_developer) CustomTextView txt_developer;
-    @BindView(R.id.rate_product) AppCompatRatingBar rate_product;
-    @BindView(R.id.img_product) AppCompatImageView img_product;
-    @BindView(R.id.tabs) TabLayout tabs;
+    @BindView(R.id.txt_page_title)
+    CustomTextView txt_page_title;
+    @BindView(R.id.txt_developer)
+    CustomTextView txt_developer;
+    @BindView(R.id.rate_product)
+    AppCompatRatingBar rate_product;
+    @BindView(R.id.img_product)
+    AppCompatImageView img_product;
+    @BindView(R.id.tabs)
+    TabLayout tabs;
     @BindView(R.id.pager) ViewPager pager;
-
-
+    @BindView(R.id.toolbar) Toolbar toolbar;
 
 
     Product product;
@@ -58,7 +65,7 @@ public class ProductActivity extends BaseActivity {
         Picasso.get().load(ApiClient.IMAGE_URL +
                 product.getIcon()).into(img_product);
 
-
+        setSupportActionBar(toolbar);
         txt_page_title.setText(product.getTitle());
 
         rate_product.setRating(Float.parseFloat(product.getRate()));
@@ -70,9 +77,40 @@ public class ProductActivity extends BaseActivity {
         fragmentLis.add(new ProductCommentsFragment());
         fragmentLis.add(new ProductRelatedFragment());
 
-        pager.setAdapter(new TabsAdapter(getSupportFragmentManager(),fragmentLis));
+
+        List<String> titlesList = new ArrayList<>();
+
+        titlesList.add(getString(R.string.descriptions));
+        titlesList.add(getString(R.string.comments));
+        titlesList.add(getString(R.string.related));
 
 
+        pager.setAdapter(new TabsAdapter(getSupportFragmentManager(), fragmentLis, titlesList));
+
+
+        tabs.setupWithViewPager(pager);
+
+        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.my_tab, null);
+        tabOne.setText(getResources().getString(R.string.descriptions));
+        // tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pencil, 0, 0);
+        tabs.getTabAt(0).setCustomView(tabOne);
+
+        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.my_tab, null);
+        tabTwo.setText(getResources().getString(R.string.comments));
+        //  tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ref_group, 0, 0);
+        tabs.getTabAt(1).setCustomView(tabTwo);
+
+
+        TextView tabThrer = (TextView) LayoutInflater.from(this).inflate(R.layout.my_tab, null);
+        tabThrer.setText(getResources().getString(R.string.related));
+        // tabThrer.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ref_user, 0, 0);
+        tabs.getTabAt(2).setCustomView(tabThrer);
+
+
+    }
+
+    public Product getProduct() {
+        return product;
     }
 
 

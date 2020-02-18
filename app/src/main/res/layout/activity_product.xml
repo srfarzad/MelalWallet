@@ -1,125 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ui.productDetail.ProductActivity">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_top"
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="@dimen/margin_8">
+        android:layout_height="@dimen/app_bar_height"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
 
-
-            <RelativeLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
 
 
-                <com.navin.melalwallet.utils.CustomTextView
-                    android:id="@+id/txt_page_title"
-                    android:layout_width="wrap_content"
-                    android:textSize="@dimen/font_product"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
 
-            </RelativeLayout>
+                    <com.navin.melalwallet.utils.CustomTextView
+                        android:id="@+id/txt_page_title"
+                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/font_product"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
 
 
-        </androidx.appcompat.widget.Toolbar>
+                </RelativeLayout>
 
 
-    </androidx.cardview.widget.CardView>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-    <androidx.cardview.widget.CardView
 
-        android:id="@+id/card_product"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_top"
-        android:layout_margin="@dimen/margin_8">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_product"
-            android:orientation="vertical"
-            android:padding="@dimen/margin_16">
-
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img_product"
-                android:layout_width="@dimen/img_width"
-                android:layout_height="@dimen/img_height"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/margin_8" />
-
-
-            <com.navin.melalwallet.utils.CustomTextView
-                android:id="@+id/txt_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/img_product"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginRight="@dimen/margin_8"
-                android:layout_toLeftOf="@id/img_product"
-                android:text="تولید کننده :" />
-
-
-            <com.navin.melalwallet.utils.CustomTextView
-                android:id="@+id/txt_developer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/img_product"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginRight="@dimen/margin_16"
-                android:layout_toLeftOf="@id/txt_title"
-                android:textColor="@color/colorPrimary" />
-
-
-            <androidx.appcompat.widget.AppCompatRatingBar
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rate_product"
-                android:layout_below="@id/txt_title"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginRight="@dimen/margin_8"
-                android:layout_toLeftOf="@id/img_product" />
-
-
-            <com.navin.melalwallet.utils.view.PersianButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/purchase_button"
-                android:paddingLeft="@dimen/margin_16"
-                android:paddingRight="@dimen/margin_16"
-                android:text="اضافه به سبد خرید"
-                android:textColor="@color/white" />
-
-
-        </RelativeLayout>
-
-
-    </androidx.cardview.widget.CardView>
+<!--
+    <include layout="@layout/content_product" />
+-->
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/card_product"
         android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+
+            android:id="@+id/card_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_8">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_product"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_16">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_product"
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_height"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_8" />
+
+
+                <com.navin.melalwallet.utils.CustomTextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/img_product"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginRight="@dimen/margin_8"
+                    android:layout_toLeftOf="@id/img_product"
+                    android:text="@string/producer" />
+
+
+                <com.navin.melalwallet.utils.CustomTextView
+                    android:id="@+id/txt_developer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/img_product"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginRight="@dimen/margin_16"
+                    android:layout_toLeftOf="@id/txt_title"
+                    android:textColor="@color/colorPrimary" />
+
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rate_product"
+                    android:layout_below="@id/txt_title"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginRight="@dimen/margin_8"
+                    android:layout_toLeftOf="@id/img_product" />
+
+
+                <com.navin.melalwallet.utils.view.PersianButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/purchase_button"
+                    android:paddingLeft="@dimen/margin_16"
+                    android:paddingRight="@dimen/margin_16"
+                    android:text="@string/basket"
+                    android:textColor="@color/white" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
 
 
         <com.google.android.material.tabs.TabLayout
@@ -138,4 +156,10 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

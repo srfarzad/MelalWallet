@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.navin.melalwallet.R;
+import com.navin.melalwallet.confiig.PrefManager;
+import com.navin.melalwallet.models.Languages;
 import com.navin.melalwallet.models.MessageEvent;
 import com.navin.melalwallet.ui.main.adapter.TabsAdapter;
 import com.navin.melalwallet.ui.main.fragment.CategoryFragment;
@@ -20,6 +23,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,16 +36,37 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     @BindView(R.id.pager) ViewPager pager;
 
+    PrefManager prefManager;
+
+    String lang="fa";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefManager = new PrefManager(this);
+
+        if(prefManager.getLanguage()== Languages.FARSI.getValue()){
+            lang="fa";
+        }else if(prefManager.getLanguage()==Languages.ENGLISH.getValue()){
+            lang="en";
+        }
+
+
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+
+
+
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.frame,new HomeFragment()).commit();
-
-
 
 
 

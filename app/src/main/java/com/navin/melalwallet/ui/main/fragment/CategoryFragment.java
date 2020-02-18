@@ -17,6 +17,7 @@ import com.navin.melalwallet.models.Category;
 import com.navin.melalwallet.models.IMessageListener;
 import com.navin.melalwallet.ui.main.adapter.CategoryAdapter;
 import com.navin.melalwallet.webservice.WebserviceCaller;
+import com.navin.mellallibrary.CheckNetworkConnection;
 
 import java.util.List;
 
@@ -51,6 +52,12 @@ public class CategoryFragment extends Fragment {
         ButterKnife.bind(this,view);
 
         webserviceCaller = new WebserviceCaller();
+
+
+        if(CheckNetworkConnection.isConnectionAvailable(getActivity()))
+        {
+
+        }
 
 
         webserviceCaller.getCategories(new IMessageListener() {

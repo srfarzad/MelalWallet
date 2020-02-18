@@ -17,4 +17,5 @@
     <dimen name="img_height">114dp</dimen>
     <dimen name="height_product">140dp</dimen>
     <dimen name="font_product">20sp</dimen>
+    <dimen name="app_bar_height">80dp</dimen>
 </resources>

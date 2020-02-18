@@ -33,4 +33,16 @@ public class PrefManager {
         return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
     }
 
+
+    public void setLanguage(int language) {
+        editor.putInt("language" ,language);
+        editor.commit();
+    }
+
+    public int getLanguage() {
+        return pref.getInt("language",1);
+    }
+
+
+
 }

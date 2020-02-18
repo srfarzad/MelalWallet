@@ -10,9 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:461318467152:android:5160ce6acd8c3431a16b55",
         "android_client_info": {
-          "package_name": "com.navin.melalwallet",
-          "package_name": "com.navin.melalwallet.demo",
-          "package_name": "com.navin.melalwallet.full"
+          "package_name": "com.navin.melalwallet"
         }
       },
 
