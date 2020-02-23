@@ -26,12 +26,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.navin.melalwallet.ui.main.MainActivity;
 import com.navin.melalwallet.R;
 import com.navin.melalwallet.database.AppDatabase;
-import com.navin.melalwallet.di.DaggerUserComponent;
-import com.navin.melalwallet.di.UserComponent;
-import com.navin.melalwallet.di.UserModule;
-import com.navin.melalwallet.di.context.ActivityComponent;
-import com.navin.melalwallet.di.context.DaggerActivityComponent;
-import com.navin.melalwallet.di.context.MainActivityModule;
+
 import com.navin.melalwallet.models.Days;
 import com.navin.melalwallet.models.User;
 import com.navin.melalwallet.service.BootupService;
@@ -63,6 +58,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     LoginPresentor loginPresentor;
     AppDatabase appDatabase;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +106,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),60000,pendingIntent);
         }
 
+/*
 
         UserComponent component =  DaggerUserComponent.builder().userModule(new UserModule()).build();
 
@@ -122,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         ActivityComponent activityComponent = DaggerActivityComponent.builder()
                 .mainActivityModule(new MainActivityModule(getApplicationContext())).build();
 
+*/
 
 
         //activityComponent.context()
@@ -340,9 +339,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         });
 
 
+
         finish();
-        Intent intent = new Intent(getApplicationContext() , MainActivity.class);
-        startActivity(intent);
+     //   Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+       // startActivity(intent);
 
     }
 

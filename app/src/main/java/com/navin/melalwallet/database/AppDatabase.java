@@ -6,10 +6,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.navin.melalwallet.models.Basket;
 import com.navin.melalwallet.models.User;
 
 
-@Database(entities = {User.class}, version = 3)
+@Database(entities = {User.class, Basket.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();

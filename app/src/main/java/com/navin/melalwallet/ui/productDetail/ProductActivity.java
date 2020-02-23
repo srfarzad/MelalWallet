@@ -7,14 +7,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.navin.melalwallet.R;
+import com.navin.melalwallet.database.AppDatabase;
+import com.navin.melalwallet.models.Basket;
 import com.navin.melalwallet.models.Product;
 import com.navin.melalwallet.ui.base.BaseActivity;
+import com.navin.melalwallet.ui.basket.BasketListActivity;
 import com.navin.melalwallet.ui.main.adapter.TabsAdapter;
 import com.navin.melalwallet.ui.productDetail.fragments.ProductCommentsFragment;
 import com.navin.melalwallet.ui.productDetail.fragments.ProductDescriptionFragment;
@@ -27,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class ProductActivity extends BaseActivity {
 
@@ -48,6 +54,7 @@ public class ProductActivity extends BaseActivity {
     Product product;
 
     Bundle bundle;
+    AppDatabase appDatabase;
 
     @Override
     public int setContentView() {
@@ -58,7 +65,7 @@ public class ProductActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        appDatabase = AppDatabase.getInstance(this);
         bundle = getIntent().getExtras();
         product = bundle.getParcelable("data");
 
@@ -112,6 +119,30 @@ public class ProductActivity extends BaseActivity {
     public Product getProduct() {
         return product;
     }
+
+
+    @OnClick(R.id.btn_add_basket)
+    public void btn_add_basket_click() {
+
+        Basket basket = new Basket(Integer.parseInt(product.getId()),product.getTitle(),product.getIcon());
+        appDatabase.userDAO().insertToBasket(basket);
+        Log.e("","");
+
+
+    }
+
+
+    @OnClick(R.id.btn_basket_list)
+    public void btn_basket_list_click() {
+
+
+        Intent intent = new Intent(getApplicationContext() , BasketListActivity.class);
+        startActivity(intent);
+
+
+    }
+
+
 
 
 }

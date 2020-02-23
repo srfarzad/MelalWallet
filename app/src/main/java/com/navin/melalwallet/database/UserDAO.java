@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.navin.melalwallet.models.Basket;
 import com.navin.melalwallet.models.User;
 
 import java.util.List;
@@ -23,6 +24,16 @@ public interface UserDAO {
 
     @Query("SELECT * FROM user")
     List<User> getAll();
+
+
+    @Insert
+    public void insertToBasket(Basket... basket);
+
+    @Query("SELECT * FROM basket")
+    List<Basket> getAllBasket();
+
+    @Delete
+    void deleteItemBasket(Basket basket);
 
 
 }

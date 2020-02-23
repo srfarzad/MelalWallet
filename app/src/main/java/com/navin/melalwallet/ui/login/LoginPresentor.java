@@ -3,12 +3,15 @@ package com.navin.melalwallet.ui.login;
 import android.app.Activity;
 import android.content.Context;
 
+import com.navin.melalwallet.confiig.PrefManager;
+
 public class LoginPresentor implements LoginIntractor.onLoginListener {
 
 
     LoginIntractor loginIntractor;
     ILoginView loginView;
     Activity context;
+
 
     public LoginPresentor (Activity context , ILoginView loginView, LoginIntractor loginIntractor) {
         this.context = context;

@@ -30,13 +30,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.productDetail.ProductActivity"></activity>
+        <activity android:name=".ui.basket.BasketListActivity"></activity>
+        <activity android:name=".ui.productDetail.ProductActivity" />
         <activity android:name=".ui.kotlin.KotlinActivity" />
         <activity android:name=".ui.map.GoogleMapActivity" />
         <activity android:name=".ui.loginAuth.LoginAuthenticationActivity" />
-        <activity android:name=".ui.welcome.WelcomeActivity"
-            android:screenOrientation="portrait"
-            >
+        <activity
+            android:name=".ui.welcome.WelcomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

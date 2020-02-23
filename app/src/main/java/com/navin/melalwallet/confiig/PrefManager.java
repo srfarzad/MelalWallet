@@ -35,14 +35,22 @@ public class PrefManager {
 
 
     public void setLanguage(int language) {
-        editor.putInt("language" ,language);
+        editor.putInt("language", language);
         editor.commit();
     }
 
     public int getLanguage() {
-        return pref.getInt("language",1);
+        return pref.getInt("language", 1);
     }
 
+    public void setLogin(boolean login) {
+        editor.putBoolean("login", login);
+        editor.commit();
+    }
+
+    public boolean isLogin() {
+        return pref.getBoolean("login", false);
+    }
 
 
 }

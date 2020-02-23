@@ -54,6 +54,8 @@
     <string name="basket">Add to Basket</string>
     <string name="producer">Producer :</string>
     <string name="change_lanugage">Change language</string>
+    <string name="basket_list"> Basket List</string>
+    <string name="payment">Payment</string>
 
 
 </resources>

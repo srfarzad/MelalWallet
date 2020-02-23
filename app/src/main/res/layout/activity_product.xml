@@ -46,6 +46,14 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true" />
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_basket_list"
+                        android:layout_width="32dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        app:srcCompat="@drawable/ic_shopping_basket_black_24dp"
+                        />
+
 
                 </RelativeLayout>
 
@@ -124,8 +132,10 @@
 
 
                 <com.navin.melalwallet.utils.view.PersianButton
+                    android:id="@+id/btn_add_basket"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/purchase_button"
                     android:paddingLeft="@dimen/margin_16"
